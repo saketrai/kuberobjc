@@ -17,6 +17,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [Parse setApplicationId:@"J6h6VGlpnF6omWCFsSMiOHvkR0cu16vZr6mwQdje"
+                  clientKey:@"1uS5IBworMZLECFvwYpS477dFpEOIJYvQbpAWLa0"];
+//    [PFAnonymousUtils logInWithBlock:^(PFUser *user, NSError *error) {
+//        if (error) {
+//            NSLog(@"Anonymous login failed.");
+//        } else {
+//            NSLog(@"Anonymous user logged in.");
+//        }
+//    }];
+    
+    [PFUser enableAutomaticUser];
+    [[PFUser currentUser] incrementKey:@"RunCount"];
+    [[PFUser currentUser] saveInBackground];
+   // [PFUser logOut];
     return YES;
 }
 

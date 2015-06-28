@@ -8,7 +8,7 @@
         <!--KuberMarket-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kuberMarket" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -36,12 +36,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1258" y="-216"/>
+            <point key="canvasLocation" x="-3066" y="1324"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="mSi-GV-05f">
+            <objects>
+                <pageViewController storyboardIdentifier="pageView" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="1ll-JV-c9J" customClass="PageViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GXw-82-oaf"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kOW-aF-EsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1809" y="462"/>
         </scene>
         <!--Take PicVC-->
         <scene sceneID="cuW-UO-2i4">
             <objects>
-                <viewController id="f6M-2k-OrO" customClass="TakePicVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="takePic" id="f6M-2k-OrO" customClass="TakePicVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vLa-a6-QFI"/>
                         <viewControllerLayoutGuide type="bottom" id="FVR-fA-CPs"/>
@@ -77,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H1c-PU-vB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1994" y="-205"/>
+            <point key="canvasLocation" x="-1234" y="1368"/>
         </scene>
     </scenes>
 </document>

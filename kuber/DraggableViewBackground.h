@@ -35,6 +35,7 @@
 
 @interface DraggableViewBackground : UIView <DraggableViewDelegate>
 
+
 //methods called in DraggableView
 -(void)cardSwipedLeft:(UIView *)card;
 -(void)cardSwipedRight:(UIView *)card;
@@ -42,7 +43,11 @@
 @property (retain,nonatomic)NSMutableArray* exampleCardLabels; //%%% the labels the cards
 @property (retain,nonatomic)NSMutableArray* allCards; //%%% the labels the cards
 @property (retain,nonatomic)NSMutableArray* imageArray; //%%% the labels the cards
-
+@property(nonatomic) NSInteger cardsLoadedIndex; //%%% the index of the card you have loaded into the loadedCards array last
+@property (retain,nonatomic) NSMutableArray *loadedCards; //%%% the array of card loaded (change max_buffer_size to increase or decrease the number of cards this holds)
+extern  const int MAX_BUFFER_SIZE; //%%% max number of cards loaded at any given time, must be greater than 1
+extern const float CARD_HEIGHT;  //%%% height of the draggable card
+extern const float CARD_WIDTH; //%%% width of the draggable card
 
 
 @end

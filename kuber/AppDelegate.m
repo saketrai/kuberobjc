@@ -53,13 +53,19 @@
                                                      andIcon: [UIImage imageNamed:@"gear"]];
     vc1.pagerObj.renderingMode = DMPagerNavigationBarItemModeTextAndImage;
     
+    TakePicVC *vc3 = [[TakePicVC alloc] init];
+    vc3.pagerObj = [DMPagerNavigationBarItem newItemWithText: [[NSAttributedString alloc] initWithString:@"DISCOVER" attributes:textAttributes]
+                                                     andIcon: [UIImage imageNamed:@"gear"]];
+    vc3.pagerObj.renderingMode = DMPagerNavigationBarItemModeTextAndImage;
+
+    
 //    TestViewController *vc3 = [[TestViewController alloc] initWithText:@"Page #3" backgroundColor:bkVC3];
 //    vc3.pagerObj = [DMPagerNavigationBarItem newItemWithText: [[NSAttributedString alloc] initWithString:@"CHAT" attributes:textAttributes]
 //                                                     andIcon: [UIImage imageNamed:@"chat_full"]];
 //    vc3.pagerObj.renderingMode = DMPagerNavigationBarItemModeOnlyText;
-    
-    // Create pager with items
-    self.pagerController = [[DMPagerViewController alloc] initWithViewControllers: @[vc1,vc2]];
+//    
+//     Create pager with items
+    self.pagerController = [[DMPagerViewController alloc] initWithViewControllers: @[vc1,vc2,vc3]];
     //self.pagerController.useNavigationBar = NO;
     
     // Setup pager's navigation bar colors

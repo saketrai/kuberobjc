@@ -20,8 +20,28 @@
 
 }
 
+//- (id)initWithFrame:(CGRect)frame
+//{
+//    self = [super initWithFrame:frame];
+//    if (self) {
+//        [super layoutSubviews];
+//        [self setupView];
+//        
+//        
+//    }
+//    return self;
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+//    navbar.backgroundColor = [UIColor blueColor];
+//    
+//    UINavigationItem *navItem = [[UINavigationItem alloc] init];
+//    navItem.title = @"takePic";
+//    navbar.items = @[ navItem ];
+//    
+//    [self.view addSubview:navbar];
     // Do any additional setup after loading the view.
     
 //    UIImage* image3 = [UIImage imageNamed:@"openBox3"];
@@ -35,13 +55,6 @@
 //    UIBarButtonItem *mailbutton =[[UIBarButtonItem alloc] initWithCustomView:someButton];
 //    self.navigationItem.rightBarButtonItem=mailbutton;
     NSLog(@"Pushed");
-    
-
-
-}
-
-- (void) pager:(DMPagerViewController *) aController didChangePageFrom:(NSInteger) aOldPage to:(NSInteger) aNewPage
-{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button addTarget:self
                action:@selector(useCamera:)
@@ -49,6 +62,13 @@
     [button setTitle:@"Take Pic" forState:UIControlStateNormal];
     button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
     [self.view addSubview:button];
+
+
+}
+
+- (void) pager:(DMPagerViewController *) aController didChangePageFrom:(NSInteger) aOldPage to:(NSInteger) aNewPage
+{
+
 }
 - (void) pager:(DMPagerViewController *) aController didScrollTo:(CGPoint) aOffset
 {

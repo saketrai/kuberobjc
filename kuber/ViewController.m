@@ -23,7 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [super viewDidLoad];
+    
+
+    
+    
     CGRect frame = self.view.frame;
     frame.origin.y = -self.view.frame.size.height; //optional: if you want the view to drop down
     DraggableViewBackground *draggableBackground = [[DraggableViewBackground alloc]initWithFrame:frame];
@@ -37,31 +40,57 @@
         draggableBackground.alpha = 1;
     }];
     
-//    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showNewEventViewController)];
-//    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-   // NSLog(@"awaked");
-  //  NSLog(@"Pic");
+    PFQuery *query = [PFQuery queryWithClassName:@"marketPics"];
+    //[query whereKey:@"imageName" equalTo:@"dstemkoski@example.com"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (!objects) {
+                NSLog(@"The getFirstObject request failed.");
+            } else {
+                // The find succeeded.
+                NSLog(@"Successfully retrieved the object %lu",(unsigned long)objects.count);
+                if(objects.count > 0) {
+                    NSInteger numLoadedCardsCap =(([objects count] > MAX_BUFFER_SIZE)?MAX_BUFFER_SIZE:[objects count]);
+                    
+                    for (int i = 0; i<[objects count]; i++) {
+                        DraggableView *newCard = [[DraggableView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)];
+                        newCard.information.text = [[objects objectAtIndex:i]objectForKey:@"imageName"]; //%%% placeholder for card-specific information
+                        
+                        
+                        PFFile *userImageFile =  [[objects objectAtIndex:i]objectForKey:@"imageFile"];;
+                        [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+                            if (!error) {
+                                newCard.cardImageView.image = [UIImage imageWithData:imageData];
+                            }
+                        }];
+                        
+                        //draggableView.cardImageView.image=[UIImage imageNamed:@"ring.jpg"];
+                        newCard.delegate = self;
+                        
+                        [draggableBackground.allCards addObject:newCard];
+                        
+                        if (i<numLoadedCardsCap) {
+                            //%%% adds a small number of cards to be loaded
+                            [draggableBackground.loadedCards addObject:newCard];
+                        }
+                    }
+                    
+                    for (int i = 0; i<[draggableBackground.loadedCards count]; i++) {
+                        if (i>0) {
+                            [draggableBackground insertSubview:[draggableBackground.loadedCards objectAtIndex:i] belowSubview:[draggableBackground.loadedCards objectAtIndex:i-1]];
+                        } else {
+                            [draggableBackground addSubview:[draggableBackground.loadedCards objectAtIndex:i]];
+                        }
+                        draggableBackground.cardsLoadedIndex++; //%%% we loaded a card into loaded cards, so we have to increment
+                    }
+                }
+                
+                
+            }
+            
+        }
+    }];
 
-    
-//    PFQuery *query = [PFQuery queryWithClassName:@"marketPics"];
-//    //[query whereKey:@"imageName" equalTo:@"dstemkoski@example.com"];
-//    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//        if (!object) {
-//            NSLog(@"The getFirstObject request failed.");
-//        } else {
-//            // The find succeeded.
-//            NSLog(@"Successfully retrieved the object %@",object);
-//            PFFile *userImageFile = [object objectForKey:@"imageFile"];
-//            [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
-//                if (!error) {
-//                    self.marketImage.image = [UIImage imageWithData:imageData];
-//                    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
-//                    [gestureRecognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
-//                    [self.marketImage addGestureRecognizer:gestureRecognizer];
-//                }
-//            }];
-//        }
-//    }];
 }
 
 - (instancetype)initWithText:(NSString *) aText backgroundColor:(UIColor *) aBkgColor {
@@ -106,9 +135,9 @@
 
 -(void)showNewEventViewController
 {
-    NSLog(@"Button CLicked");
-    
-    [self performSegueWithIdentifier:@"takePic" sender:self];
+//    NSLog(@"Button CLicked");
+//    
+//    [self performSegueWithIdentifier:@"takePic" sender:self];
 
 }
 

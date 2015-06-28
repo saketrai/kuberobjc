@@ -52,7 +52,6 @@
 		099B48151B3FE56A00D49C7E /* openBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 099B48141B3FE56A00D49C7E /* openBox.png */; };
 		099B48171B3FE5A800D49C7E /* openBox2.png in Resources */ = {isa = PBXBuildFile; fileRef = 099B48161B3FE5A800D49C7E /* openBox2.png */; };
 		099B48191B3FE60800D49C7E /* openBox3.png in Resources */ = {isa = PBXBuildFile; fileRef = 099B48181B3FE60800D49C7E /* openBox3.png */; };
-		099B481C1B3FF78000D49C7E /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B481B1B3FF78000D49C7E /* PageViewController.m */; };
 		099B482D1B40053D00D49C7E /* DMPagerNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B482A1B40053D00D49C7E /* DMPagerNavigationBar.m */; };
 		099B482E1B40053D00D49C7E /* DMPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B482C1B40053D00D49C7E /* DMPagerViewController.m */; };
 		099B483F1B400BCB00D49C7E /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 099B48301B400BCB00D49C7E /* Contents.json */; };
@@ -66,6 +65,7 @@
 		099B48471B400BCB00D49C7E /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 099B483C1B400BCB00D49C7E /* Contents.json */; };
 		099B48481B400BCB00D49C7E /* rchat.png in Resources */ = {isa = PBXBuildFile; fileRef = 099B483D1B400BCB00D49C7E /* rchat.png */; };
 		099B48491B400BCB00D49C7E /* rchat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 099B483E1B400BCB00D49C7E /* rchat@2x.png */; };
+		099B484F1B4063ED00D49C7E /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B484E1B4063ED00D49C7E /* PageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,8 +134,6 @@
 		099B48141B3FE56A00D49C7E /* openBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openBox.png; sourceTree = "<group>"; };
 		099B48161B3FE5A800D49C7E /* openBox2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openBox2.png; sourceTree = "<group>"; };
 		099B48181B3FE60800D49C7E /* openBox3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openBox3.png; sourceTree = "<group>"; };
-		099B481A1B3FF78000D49C7E /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
-		099B481B1B3FF78000D49C7E /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		099B48291B40053D00D49C7E /* DMPagerNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerNavigationBar.h; sourceTree = "<group>"; };
 		099B482A1B40053D00D49C7E /* DMPagerNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPagerNavigationBar.m; sourceTree = "<group>"; };
 		099B482B1B40053D00D49C7E /* DMPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerViewController.h; sourceTree = "<group>"; };
@@ -151,6 +149,8 @@
 		099B483C1B400BCB00D49C7E /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		099B483D1B400BCB00D49C7E /* rchat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rchat.png; sourceTree = "<group>"; };
 		099B483E1B400BCB00D49C7E /* rchat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rchat@2x.png"; sourceTree = "<group>"; };
+		099B484D1B4063ED00D49C7E /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		099B484E1B4063ED00D49C7E /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,9 +215,9 @@
 		0900B1951B3E65010046D1E1 /* kuber */ = {
 			isa = PBXGroup;
 			children = (
-				099B481A1B3FF78000D49C7E /* PageViewController.h */,
-				099B481B1B3FF78000D49C7E /* PageViewController.m */,
 				099B480E1B3F2F5400D49C7E /* Main.storyboard */,
+				099B484D1B4063ED00D49C7E /* PageViewController.h */,
+				099B484E1B4063ED00D49C7E /* PageViewController.m */,
 				099B480B1B3F290900D49C7E /* TakePicVC.h */,
 				099B480C1B3F290900D49C7E /* TakePicVC.m */,
 				0900B19A1B3E65010046D1E1 /* AppDelegate.h */,
@@ -508,11 +508,11 @@
 			files = (
 				099B480D1B3F290900D49C7E /* TakePicVC.m in Sources */,
 				0900B1F51B3E85540046D1E1 /* DraggableViewBackground.m in Sources */,
-				099B481C1B3FF78000D49C7E /* PageViewController.m in Sources */,
 				0900B19C1B3E65020046D1E1 /* AppDelegate.m in Sources */,
 				0900B20C1B3E861B0046D1E1 /* OverlayView.m in Sources */,
 				0900B19F1B3E65020046D1E1 /* kuber.xcdatamodeld in Sources */,
 				099B482D1B40053D00D49C7E /* DMPagerNavigationBar.m in Sources */,
+				099B484F1B4063ED00D49C7E /* PageViewController.m in Sources */,
 				099B482E1B40053D00D49C7E /* DMPagerViewController.m in Sources */,
 				0900B1A21B3E65020046D1E1 /* ViewController.m in Sources */,
 				0900B1991B3E65010046D1E1 /* main.m in Sources */,

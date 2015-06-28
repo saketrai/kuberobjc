@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "DMPagerViewController.h"
-@class DMPagerNavigationBarItem;
+//@class DMPagerNavigationBarItem;
 
 
 @interface TakePicVC : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate,DMPagerViewControllerProtocol>

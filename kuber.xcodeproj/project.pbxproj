@@ -48,6 +48,13 @@
 		099B48081B3E9D4400D49C7E /* ring.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 099B48071B3E9D4400D49C7E /* ring.jpg */; };
 		099B480D1B3F290900D49C7E /* TakePicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B480C1B3F290900D49C7E /* TakePicVC.m */; };
 		099B480F1B3F2F5400D49C7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 099B480E1B3F2F5400D49C7E /* Main.storyboard */; };
+		099B48111B3FE11100D49C7E /* openBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 099B48101B3FE11100D49C7E /* openBox.png */; };
+		099B48151B3FE56A00D49C7E /* openBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 099B48141B3FE56A00D49C7E /* openBox.png */; };
+		099B48171B3FE5A800D49C7E /* openBox2.png in Resources */ = {isa = PBXBuildFile; fileRef = 099B48161B3FE5A800D49C7E /* openBox2.png */; };
+		099B48191B3FE60800D49C7E /* openBox3.png in Resources */ = {isa = PBXBuildFile; fileRef = 099B48181B3FE60800D49C7E /* openBox3.png */; };
+		099B481C1B3FF78000D49C7E /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B481B1B3FF78000D49C7E /* PageViewController.m */; };
+		099B48231B3FFEB900D49C7E /* DMPagerNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B48201B3FFEB900D49C7E /* DMPagerNavigationBar.m */; };
+		099B48241B3FFEB900D49C7E /* DMPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B48221B3FFEB900D49C7E /* DMPagerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +119,16 @@
 		099B480B1B3F290900D49C7E /* TakePicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePicVC.h; sourceTree = "<group>"; };
 		099B480C1B3F290900D49C7E /* TakePicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePicVC.m; sourceTree = "<group>"; };
 		099B480E1B3F2F5400D49C7E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		099B48101B3FE11100D49C7E /* openBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openBox.png; sourceTree = "<group>"; };
+		099B48141B3FE56A00D49C7E /* openBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openBox.png; sourceTree = "<group>"; };
+		099B48161B3FE5A800D49C7E /* openBox2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openBox2.png; sourceTree = "<group>"; };
+		099B48181B3FE60800D49C7E /* openBox3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openBox3.png; sourceTree = "<group>"; };
+		099B481A1B3FF78000D49C7E /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		099B481B1B3FF78000D49C7E /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
+		099B481F1B3FFEB900D49C7E /* DMPagerNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerNavigationBar.h; sourceTree = "<group>"; };
+		099B48201B3FFEB900D49C7E /* DMPagerNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPagerNavigationBar.m; sourceTree = "<group>"; };
+		099B48211B3FFEB900D49C7E /* DMPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerViewController.h; sourceTree = "<group>"; };
+		099B48221B3FFEB900D49C7E /* DMPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPagerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +193,8 @@
 		0900B1951B3E65010046D1E1 /* kuber */ = {
 			isa = PBXGroup;
 			children = (
+				099B481A1B3FF78000D49C7E /* PageViewController.h */,
+				099B481B1B3FF78000D49C7E /* PageViewController.m */,
 				099B480E1B3F2F5400D49C7E /* Main.storyboard */,
 				099B480B1B3F290900D49C7E /* TakePicVC.h */,
 				099B480C1B3F290900D49C7E /* TakePicVC.m */,
@@ -184,6 +203,7 @@
 				0900B1A01B3E65020046D1E1 /* ViewController.h */,
 				0900B1A11B3E65020046D1E1 /* ViewController.m */,
 				0900B1A61B3E65020046D1E1 /* Images.xcassets */,
+				099B48101B3FE11100D49C7E /* openBox.png */,
 				0900B20E1B3E87290046D1E1 /* Contents.json */,
 				0900B1A81B3E65020046D1E1 /* LaunchScreen.xib */,
 				0900B19D1B3E65020046D1E1 /* kuber.xcdatamodeld */,
@@ -247,6 +267,10 @@
 		0900B1F61B3E855B0046D1E1 /* External Files */ = {
 			isa = PBXGroup;
 			children = (
+				099B481F1B3FFEB900D49C7E /* DMPagerNavigationBar.h */,
+				099B48201B3FFEB900D49C7E /* DMPagerNavigationBar.m */,
+				099B48211B3FFEB900D49C7E /* DMPagerViewController.h */,
+				099B48221B3FFEB900D49C7E /* DMPagerViewController.m */,
 				0900B20D1B3E86220046D1E1 /* DraggableView */,
 			);
 			name = "External Files";
@@ -255,6 +279,9 @@
 		0900B1F71B3E85700046D1E1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				099B48181B3FE60800D49C7E /* openBox3.png */,
+				099B48161B3FE5A800D49C7E /* openBox2.png */,
+				099B48141B3FE56A00D49C7E /* openBox.png */,
 				0900B1F91B3E85950046D1E1 /* background.imageset */,
 				0900B1FA1B3E85950046D1E1 /* checkButton.imageset */,
 				0900B1FB1B3E85950046D1E1 /* LaunchImage.launchimage */,
@@ -363,14 +390,18 @@
 			files = (
 				0900B2091B3E85950046D1E1 /* yesButton.imageset in Resources */,
 				0900B2081B3E85950046D1E1 /* xButton.imageset in Resources */,
+				099B48191B3FE60800D49C7E /* openBox3.png in Resources */,
+				099B48151B3FE56A00D49C7E /* openBox.png in Resources */,
 				0900B2051B3E85950046D1E1 /* menuButton.imageset in Resources */,
 				0900B2041B3E85950046D1E1 /* LaunchImage.launchimage in Resources */,
 				0900B2021B3E85950046D1E1 /* background.imageset in Resources */,
 				0900B20F1B3E87290046D1E1 /* Contents.json in Resources */,
 				0900B2061B3E85950046D1E1 /* messageButton.imageset in Resources */,
+				099B48111B3FE11100D49C7E /* openBox.png in Resources */,
 				099B480F1B3F2F5400D49C7E /* Main.storyboard in Resources */,
 				099B48081B3E9D4400D49C7E /* ring.jpg in Resources */,
 				0900B2031B3E85950046D1E1 /* checkButton.imageset in Resources */,
+				099B48171B3FE5A800D49C7E /* openBox2.png in Resources */,
 				0900B2071B3E85950046D1E1 /* noButton.imageset in Resources */,
 				0900B1AA1B3E65020046D1E1 /* LaunchScreen.xib in Resources */,
 				0900B1A71B3E65020046D1E1 /* Images.xcassets in Resources */,
@@ -393,9 +424,12 @@
 			files = (
 				099B480D1B3F290900D49C7E /* TakePicVC.m in Sources */,
 				0900B1F51B3E85540046D1E1 /* DraggableViewBackground.m in Sources */,
+				099B481C1B3FF78000D49C7E /* PageViewController.m in Sources */,
 				0900B19C1B3E65020046D1E1 /* AppDelegate.m in Sources */,
 				0900B20C1B3E861B0046D1E1 /* OverlayView.m in Sources */,
 				0900B19F1B3E65020046D1E1 /* kuber.xcdatamodeld in Sources */,
+				099B48231B3FFEB900D49C7E /* DMPagerNavigationBar.m in Sources */,
+				099B48241B3FFEB900D49C7E /* DMPagerViewController.m in Sources */,
 				0900B1A21B3E65020046D1E1 /* ViewController.m in Sources */,
 				0900B1991B3E65010046D1E1 /* main.m in Sources */,
 				0900B1F41B3E85540046D1E1 /* DraggableView.m in Sources */,

@@ -40,7 +40,8 @@
         information.text = @"no info given";
         [information setTextAlignment:NSTextAlignmentCenter];
         information.textColor = [UIColor grayColor];
-        self.cardImageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 50, self.frame.size.width, 300)];
+        
+        self.cardImageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 320)];
         self.cardImageView.image=[UIImage imageNamed:@"ring.jpg"];
         
         self.backgroundColor = [UIColor whiteColor];
@@ -65,7 +66,7 @@
 
 -(void)setupView
 {
-    self.layer.cornerRadius = 4;
+    self.layer.cornerRadius = 6;
     self.layer.shadowRadius = 3;
     self.layer.shadowOpacity = 0.2;
     self.layer.shadowOffset = CGSizeMake(1, 1);

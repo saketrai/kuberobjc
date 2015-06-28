@@ -7,6 +7,7 @@
 //
 
 #import "TakePicVC.h"
+#import <Parse/Parse.h>
 
 @interface TakePicVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *pickedImageView;
@@ -18,6 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSLog(@"Pushed");
+    UIImage* image3 = [UIImage imageNamed:@"openBox3"];
+    CGRect frameimg = CGRectMake(0, 0, image3.size.width, image3.size.height);
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:image3 forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(addtoOpenBox)
+         forControlEvents:UIControlEventTouchUpInside];
+    [someButton setShowsTouchWhenHighlighted:YES];
+    
+    UIBarButtonItem *mailbutton =[[UIBarButtonItem alloc] initWithCustomView:someButton];
+    self.navigationItem.rightBarButtonItem=mailbutton;
     [self useCamera:self];
 }
 
@@ -78,6 +91,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                                            self,
                                            @selector(image:finishedSavingWithError:contextInfo:),
                                            nil);
+        
+       // NSData *imageData = UIImagePNGRepresentation(pickedImage,0.5);
+        NSData *imageData = UIImageJPEGRepresentation(pickedImage, 0.5);
+
+        PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
+        
+        PFObject *userPhoto = [PFObject objectWithClassName:@"marketPics"];
+        userPhoto[@"imageName"] = @"Remote";
+        userPhoto[@"imageFile"] = imageFile;
+        userPhoto[@"username"]=[[PFUser currentUser] username];
+        [userPhoto saveInBackground];
     }
     else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
     {
@@ -103,6 +127,10 @@ finishedSavingWithError:(NSError *)error
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)addToOpenBox
+{
 }
 /*
 #pragma mark - Navigation

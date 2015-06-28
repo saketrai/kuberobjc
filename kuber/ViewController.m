@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <Parse/Parse.h>
 #import "DraggableViewBackground.h"
+#import "TakePicVC.h"
 
 
 
@@ -35,6 +36,11 @@
         draggableBackground.center = self.view.center;
         draggableBackground.alpha = 1;
     }];
+    
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showNewEventViewController)];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+   // NSLog(@"awaked");
+  //  NSLog(@"Pic");
 
     
 //    PFQuery *query = [PFQuery queryWithClassName:@"marketPics"];
@@ -63,5 +69,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)showNewEventViewController
+{
+    NSLog(@"Button CLicked");
+    
+    [self performSegueWithIdentifier:@"takePic" sender:self];
+
+}
 
 @end

@@ -2,8 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="B44-p4-ewi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--KuberMarket-->
@@ -21,79 +19,49 @@
                         <gestureRecognizers/>
                     </view>
                     <navigationItem key="navigationItem" title="KuberMarket" id="X8z-fX-Vya">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="9nr-Z5-Zem">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GGE-dF-B2q">
-                                <rect key="frame" x="538" y="7" width="84" height="30"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="5LS-If-D6x">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VVB-Si-dnn">
+                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Take Picture">
+                                <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="g78-gv-iSk" kind="popoverPresentation" popoverAnchorView="GGE-dF-B2q" id="eV3-QB-C2i">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="f6M-2k-OrO" kind="show" identifier="takePic" id="u9Y-ga-6oR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1530" y="-179"/>
+            <point key="canvasLocation" x="1258" y="-216"/>
         </scene>
         <!--Take PicVC-->
-        <scene sceneID="bJ4-m0-9bv">
+        <scene sceneID="cuW-UO-2i4">
             <objects>
-                <viewController id="g78-gv-iSk" customClass="TakePicVC" sceneMemberID="viewController">
+                <viewController id="f6M-2k-OrO" customClass="TakePicVC" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1g2-nd-kqN"/>
-                        <viewControllerLayoutGuide type="bottom" id="kfe-tS-BJE"/>
+                        <viewControllerLayoutGuide type="top" id="vLa-a6-QFI"/>
+                        <viewControllerLayoutGuide type="bottom" id="FVR-fA-CPs"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rsZ-L0-60d">
+                    <view key="view" contentMode="scaleToFill" id="X3H-ua-xWD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RTI-AK-o5h">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5JI-pb-ty1">
+                                <rect key="frame" x="110" y="112" width="381" height="408"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="kfe-tS-BJE" firstAttribute="top" secondItem="RTI-AK-o5h" secondAttribute="bottom" id="Pbu-yp-BSf"/>
-                            <constraint firstItem="RTI-AK-o5h" firstAttribute="top" secondItem="1g2-nd-kqN" secondAttribute="bottom" constant="12" id="e1F-l6-QAc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RTI-AK-o5h" secondAttribute="trailing" id="pgZ-hn-ggj"/>
-                            <constraint firstItem="RTI-AK-o5h" firstAttribute="leading" secondItem="rsZ-L0-60d" secondAttribute="leadingMargin" id="sfF-wz-RXe"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="RTI-AK-o5h"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="Pbu-yp-BSf"/>
-                                <exclude reference="e1F-l6-QAc"/>
-                                <exclude reference="pgZ-hn-ggj"/>
-                                <exclude reference="sfF-wz-RXe"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="RTI-AK-o5h"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="Pbu-yp-BSf"/>
-                                <include reference="e1F-l6-QAc"/>
-                                <include reference="pgZ-hn-ggj"/>
-                                <include reference="sfF-wz-RXe"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
-                        <outlet property="image" destination="RTI-AK-o5h" id="ama-BX-7Zd"/>
+                        <outlet property="pickedImageView" destination="5JI-pb-ty1" id="FJu-hd-vt2"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rfl-0F-ccf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H1c-PU-vB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2650.5" y="-147.75"/>
+            <point key="canvasLocation" x="1994" y="-205"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pzw-cS-2bt">

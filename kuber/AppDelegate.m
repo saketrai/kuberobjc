@@ -27,11 +27,11 @@
 //            NSLog(@"Anonymous user logged in.");
 //        }
 //    }];
-    
+//    
     [PFUser enableAutomaticUser];
     [[PFUser currentUser] incrementKey:@"RunCount"];
     [[PFUser currentUser] saveInBackground];
-   // [PFUser logOut];
+//[PFUser logOut];
     return YES;
 }
 

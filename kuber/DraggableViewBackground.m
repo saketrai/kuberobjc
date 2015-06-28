@@ -50,32 +50,49 @@ static const float CARD_WIDTH = 290; //%%% width of the draggable card
                     NSLog(@"The getFirstObject request failed.");
                 } else {
                     // The find succeeded.
-                    NSLog(@"Successfully retrieved the object %@",objects);
-              
-                    for (id object in objects) {
-                   
-                    PFFile *userImageFile = [object objectForKey:@"imageFile"];
-                        [exampleCardLabels addObject:[object objectForKey:@"imageName"]];
-                        NSLog(@"Successfully saved the name %@",exampleCardLabels);
-                    [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
-                        if (!error) {
-                            [self.imageArray addObject:[UIImage imageWithData:imageData]];
-                          //  NSLog(@"Successfully saved the images %@",self.imageArray );
-                            [self loadCards];
+                    NSLog(@"Successfully retrieved the object %lu",(unsigned long)objects.count);
+                    if(objects.count > 0) {
+                        NSInteger numLoadedCardsCap =(([objects count] > MAX_BUFFER_SIZE)?MAX_BUFFER_SIZE:[objects count]);
 
+                        for (int i = 0; i<[objects count]; i++) {
+                            DraggableView *newCard = [[DraggableView alloc]initWithFrame:CGRectMake((self.frame.size.width - CARD_WIDTH)/2, (self.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)];
+                            newCard.information.text = [[objects objectAtIndex:i]objectForKey:@"imageName"]; //%%% placeholder for card-specific information
+                           
                             
-
+                            PFFile *userImageFile =  [[objects objectAtIndex:i]objectForKey:@"imageFile"];;
+                            [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+                                if (!error) {
+                                    newCard.cardImageView.image = [UIImage imageWithData:imageData];
+                                }
+                            }];
+                            
+                            //draggableView.cardImageView.image=[UIImage imageNamed:@"ring.jpg"];
+                            newCard.delegate = self;
+                            
+                            [allCards addObject:newCard];
+                            
+                            if (i<numLoadedCardsCap) {
+                                //%%% adds a small number of cards to be loaded
+                                [loadedCards addObject:newCard];
+                            }
                         }
-                    }];
-               }
-//                    exampleCardLabels = [[NSArray alloc]initWithObjects:@"first",@"second",@"third",@"fourth",@"last", nil]; //%%% placeholder for card-specific information
+
+                        for (int i = 0; i<[loadedCards count]; i++) {
+                            if (i>0) {
+                                [self insertSubview:[loadedCards objectAtIndex:i] belowSubview:[loadedCards objectAtIndex:i-1]];
+                            } else {
+                                [self addSubview:[loadedCards objectAtIndex:i]];
+                            }
+                            cardsLoadedIndex++; //%%% we loaded a card into loaded cards, so we have to increment
+                        }
+                    }
+
 
                 }
                     
             }
         }];
 
-//        [self loadCards];
 
     }
     return self;
@@ -90,10 +107,10 @@ static const float CARD_WIDTH = 290; //%%% width of the draggable card
     //[menuButton setImage:[UIImage imageNamed:@"menuButton"] forState:UIControlStateNormal];
     //messageButton = [[UIButton alloc]initWithFrame:CGRectMake(284, 34, 18, 18)];
     //[messageButton setImage:[UIImage imageNamed:@"messageButton"] forState:UIControlStateNormal];
-    xButton = [[UIButton alloc]initWithFrame:CGRectMake(60, 485, 59, 59)];
+    xButton = [[UIButton alloc]initWithFrame:CGRectMake(60, 520, 59, 59)];
     [xButton setImage:[UIImage imageNamed:@"xButton"] forState:UIControlStateNormal];
     [xButton addTarget:self action:@selector(swipeLeft) forControlEvents:UIControlEventTouchUpInside];
-    checkButton = [[UIButton alloc]initWithFrame:CGRectMake(200, 485, 59, 59)];
+    checkButton = [[UIButton alloc]initWithFrame:CGRectMake(260, 520, 59, 59)];
     [checkButton setImage:[UIImage imageNamed:@"checkButton"] forState:UIControlStateNormal];
     [checkButton addTarget:self action:@selector(swipeRight) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:menuButton];
@@ -120,32 +137,7 @@ static const float CARD_WIDTH = 290; //%%% width of the draggable card
 -(void)loadCards
 {
     //NSLog(@"exampleCardLabels is %lu",(unsigned long)[exampleCardLabels count]);
-    if([exampleCardLabels count] > 0) {
-        NSInteger numLoadedCardsCap =(([exampleCardLabels count] > MAX_BUFFER_SIZE)?MAX_BUFFER_SIZE:[exampleCardLabels count]);
-        //%%% if the buffer size is greater than the data size, there will be an array error, so this makes sure that doesn't happen
-        
-        //%%% loops through the exampleCardsLabels array to create a card for each label.  This should be customized by removing "exampleCardLabels" with your own array of data
-        for (int i = 0; i<[exampleCardLabels count]; i++) {
-            DraggableView* newCard = [self createDraggableViewWithDataAtIndex:i];
-            [allCards addObject:newCard];
-            
-            if (i<numLoadedCardsCap) {
-                //%%% adds a small number of cards to be loaded
-                [loadedCards addObject:newCard];
-            }
-        }
-        
-        //%%% displays the small number of loaded cards dictated by MAX_BUFFER_SIZE so that not all the cards
-        // are showing at once and clogging a ton of data
-        for (int i = 0; i<[loadedCards count]; i++) {
-            if (i>0) {
-                [self insertSubview:[loadedCards objectAtIndex:i] belowSubview:[loadedCards objectAtIndex:i-1]];
-            } else {
-                [self addSubview:[loadedCards objectAtIndex:i]];
-            }
-            cardsLoadedIndex++; //%%% we loaded a card into loaded cards, so we have to increment
-        }
-    }
+
 }
 
 #warning include own action here!

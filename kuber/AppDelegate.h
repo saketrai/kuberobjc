@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import <Parse/Parse.h>
-//#import <DMPagerViewController/DMPagerViewController.h>
+#import "DMPagerViewController.h"
 
 
 
@@ -20,7 +20,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-//@property (strong, nonatomic) DMPagerViewController	*pagerController;
+@property (strong, nonatomic) DMPagerViewController	*pagerController;
 
 
 - (void)saveContext;

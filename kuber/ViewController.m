@@ -37,8 +37,8 @@
         draggableBackground.alpha = 1;
     }];
     
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showNewEventViewController)];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+//    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showNewEventViewController)];
+//    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
    // NSLog(@"awaked");
   //  NSLog(@"Pic");
 
@@ -64,6 +64,41 @@
 //    }];
 }
 
+- (instancetype)initWithText:(NSString *) aText backgroundColor:(UIColor *) aBkgColor {
+    self = [super init];
+    if (self) {
+        self.view = [[UIView alloc] initWithFrame:CGRectZero];
+        self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        self.view.backgroundColor = aBkgColor;
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+        label.text = aText;
+        label.font = [UIFont boldSystemFontOfSize:40];
+        label.numberOfLines = 1;
+        label.textAlignment = NSTextAlignmentCenter;
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = [UIColor whiteColor];
+        label.autoresizingMask = (UIViewAutoresizingFlexibleWidth |
+                                  UIViewAutoresizingFlexibleTopMargin    |
+                                  UIViewAutoresizingFlexibleBottomMargin);
+        [self.view addSubview:label];
+        
+        CGSize bestSize = [label.attributedText boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
+                                                             options:NSStringDrawingTruncatesLastVisibleLine
+                                                             context:NULL].size;
+        label.frame = CGRectMake(0,
+                                 ((CGRectGetHeight(self.view.frame)-bestSize.height)/2.0f),
+                                 CGRectGetWidth(self.view.frame),
+                                 bestSize.height);
+        
+    }
+    return self;
+}
+
+- (DMPagerNavigationBarItem *)pagerItem {
+    return self.pagerObj;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -76,5 +111,14 @@
     [self performSegueWithIdentifier:@"takePic" sender:self];
 
 }
+
+//- (DMPagerNavigationBarItem *)pagerItem {
+//    DMPagerNavigationBarItem *item;
+//    UIImage *itemIcon = [UIImage imageWithContentsOfFile:@"messageButton"];
+//    NSAttributedString *itemTitle = @"abc";
+//    item = [DMPagerNavigationBarItem newItemWithText:itemTitle andIcon: itemIcon];
+//    item.renderingMode = DMPagerNavigationBarItemModeOnlyText;
+//    return item;
+//}
 
 @end

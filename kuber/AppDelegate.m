@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
+#import "TakePicVC.h"
 @interface AppDelegate ()
 
 @end
@@ -32,6 +33,45 @@
     [[PFUser currentUser] incrementKey:@"RunCount"];
     [[PFUser currentUser] saveInBackground];
 //[PFUser logOut];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    NSDictionary *textAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:12.0f],
+                                      NSForegroundColorAttributeName : [UIColor blackColor]};
+    
+    UIColor *bkVC1 = [UIColor colorWithRed:0.000 green:0.475 blue:0.647 alpha:1.000];
+    UIColor *bkVC2 = [UIColor colorWithRed:0.000 green:0.729 blue:0.984 alpha:1.000];
+    UIColor *bkVC3 = [UIColor colorWithRed:0.753 green:0.929 blue:0.996 alpha:1.000];
+    
+    ViewController *vc1 = [[ViewController alloc] init];
+    vc1.pagerObj = [DMPagerNavigationBarItem newItemWithText: [[NSAttributedString alloc] initWithString:@"HOME" attributes:textAttributes]
+                                                     andIcon: [UIImage imageNamed:@"rchat"]];
+    vc1.pagerObj.renderingMode = DMPagerNavigationBarItemModeTextAndImage;
+    
+    
+    TakePicVC *vc2 = [[TakePicVC alloc] init];
+    vc2.pagerObj = [DMPagerNavigationBarItem newItemWithText: [[NSAttributedString alloc] initWithString:@"DISCOVER" attributes:textAttributes]
+                                                     andIcon: [UIImage imageNamed:@"gear"]];
+    vc1.pagerObj.renderingMode = DMPagerNavigationBarItemModeTextAndImage;
+    
+//    TestViewController *vc3 = [[TestViewController alloc] initWithText:@"Page #3" backgroundColor:bkVC3];
+//    vc3.pagerObj = [DMPagerNavigationBarItem newItemWithText: [[NSAttributedString alloc] initWithString:@"CHAT" attributes:textAttributes]
+//                                                     andIcon: [UIImage imageNamed:@"chat_full"]];
+//    vc3.pagerObj.renderingMode = DMPagerNavigationBarItemModeOnlyText;
+    
+    // Create pager with items
+    self.pagerController = [[DMPagerViewController alloc] initWithViewControllers: @[vc1,vc2]];
+    //self.pagerController.useNavigationBar = NO;
+    
+    // Setup pager's navigation bar colors
+    UIColor *activeColor = [UIColor colorWithRed:0.000 green:0.235 blue:0.322 alpha:1.000];
+    UIColor *inactiveColor = [UIColor colorWithRed:.84 green:.84 blue:.84 alpha:1.0];
+    self.pagerController.navigationBar.inactiveItemColor = inactiveColor;
+    self.pagerController.navigationBar.activeItemColor = activeColor;
+    
+    self.window.rootViewController = self.pagerController;
+    [self.window makeKeyAndVisible];
+
+
     return YES;
 }
 

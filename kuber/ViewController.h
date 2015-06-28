@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DMPagerViewController.h"
+@class DMPagerNavigationBarItem;
 
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <DMPagerViewControllerProtocol>
+@property (nonatomic,strong) DMPagerNavigationBarItem	*pagerObj;
+
+- (instancetype)initWithText:(NSString *) aText backgroundColor:(UIColor *) aBkgColor;
 
 
 @end
